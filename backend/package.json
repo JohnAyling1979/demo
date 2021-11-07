@@ -6,7 +6,7 @@
   "author": "John Ayling",
   "license": "MIT",
   "scripts": {
-    "start": "yarn install && node_modules/.bin/nodemon app.js"
+    "start": "node_modules/.bin/nodemon app.js"
   },
   "dependencies": {
     "express": "^4.17.1",

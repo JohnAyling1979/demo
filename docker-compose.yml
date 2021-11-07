@@ -23,31 +23,25 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 
   backend:
-    image: node:16.13.0
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: backend
-    user: node
     depends_on:
       - mongodb
-    working_dir: /home/node/app
     volumes:
-      - ./backend:/home/node/app
-    expose:
-      - "3000"
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - 3000:3000
-    command: "yarn start"
 
   frontend:
-    image: node:16.13.0
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: frontend
-    user: node
-    depends_on:
-      - mongodb
-    working_dir: /usr/src/app
     volumes:
       - ./frontend:/usr/src/app
-    expose:
-      - "4200"
+      - /usr/src/app/node_modules
     ports:
       - 4200:4200
-    command: "yarn start"
