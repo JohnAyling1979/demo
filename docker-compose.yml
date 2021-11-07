@@ -36,3 +36,18 @@ services:
     ports:
       - 3000:3000
     command: "yarn start"
+
+  frontend:
+    image: node:16.13.0
+    container_name: frontend
+    user: node
+    depends_on:
+      - mongodb
+    working_dir: /usr/src/app
+    volumes:
+      - ./frontend:/usr/src/app
+    expose:
+      - "4200"
+    ports:
+      - 4200:4200
+    command: "yarn start"
