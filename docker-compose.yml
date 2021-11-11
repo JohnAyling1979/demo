@@ -31,7 +31,6 @@ services:
       - mongodb
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
       - 3000:3000
 
@@ -42,6 +41,5 @@ services:
     container_name: frontend
     volumes:
       - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
       - 4200:4200
