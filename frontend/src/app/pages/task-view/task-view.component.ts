@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-view.component.scss']
 })
 export class TaskViewComponent implements OnInit {
+  lists: any[] = [];
 
   constructor() { }
 
